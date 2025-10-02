@@ -1,0 +1,20 @@
+{%extends "base.html"%}
+<html>
+    <body>
+        {%block content%}
+        {% if name%}
+        <h2>Hello {{name}}</h2>
+        {%else%}
+        <h2>Hello UwU</h2>
+        {%endif%}
+
+        
+        <form method="get" action="/playground/add/"> <!-- generate the exact path for the view named add-->
+            Enter number 1: <input type="text" name="n1"><br>
+            Enter number 2: <input type="text" name="n2"><br>
+            <input type="submit" name="add">
+        </form>
+        
+        {%endblock%}
+    </body>
+</html>
