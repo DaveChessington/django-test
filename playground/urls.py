@@ -3,7 +3,9 @@ from . import views
 
 #URLConf
 urlpatterns=[
+    path("",views.welcome_playground),
     path("hello/",views.say_hello),
-    path("add/",views.add,name="add"),
-    path("home/",views.base)
+    path("operations/",views.operation),
+    path("operations/result/",views.get_result, name="result"),
+    path("home/",views.base) 
 ]

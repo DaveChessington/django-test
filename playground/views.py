@@ -4,18 +4,35 @@ from django.http import HttpResponse
 # request handler
 #action
 
+def welcome_playground(request):
+    return render(request,"playground.html")
 
 def say_hello(request):
     #return HttpResponse("Hello World")
-
-    return render(request,"hello.html",{"name":"Mosh"})
+    name=request.GET.get("name",0)
+    return render(request,"hello.html",{"name":name})
 
 def base(request):
     return render(request,"base.html")
 
-def add(request): #GEt Method
-    result=float(request.GET["n1"])+float(request.GET["n2"])
-    return render(request,"result.html",{"result":result})
+def operation(request):
+    return render(request,"operations.html")
+
+def get_result(request):
+    print(request.GET)
+    operation=request.GET.get("operations")
+    n1,n2=float(request.GET.get("n1",0)),float(request.GET.get("n2",0))
+
+    match operation.lower():
+        case "add":
+            res=n1+n2
+        case "substract":
+            res=n1-n2
+        case "multiply":
+            res=n1*n2
+        case "divide":
+            res=n1/n2
+    return render(request,"result.html",{"result":res})
 
 def login(request): #Post Method
     pass
