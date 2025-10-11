@@ -1,0 +1,21 @@
+{%extends "base.html"%}
+
+{% load static %}
+
+{%block content%}
+<a href="{% url 'playground:hello' %}">Go back</a>
+<h2>login page</h2>
+<img src="images/Python-logo.png" alt="Python Logo">
+<p>This a login page please Enter your crdentials including password and user name</p><br>
+<form method="post" action="{% url 'playground:lobby' %}">
+    {% csrf_token %}
+    User: <input type="text" name="user" required><br>
+    Password: <input type="password" name="password" required><br>
+    <input type="submit" value="log in">
+    {% if error %}
+    <p style="color:red;">{{ error }}</p>
+{% endif %}
+</form>
+if you don't have an account<a href="{% url 'playground:signup' %}">PRESS HERE</a>
+
+{%endblock%}
