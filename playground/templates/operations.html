@@ -1,0 +1,24 @@
+{%extends "base.html"%}
+<html>
+    <body>
+        {%block content%}
+        <a href="{% url 'playground:hello' %}">Go back</a><br>
+
+        <h2>Operations</h2>
+        Please choose:<br>
+        
+        <form method="get" action="{% url 'playground:result' %}"><br>
+        
+ <!-- generate the exact path for the view named add-->
+            <label><input type="radio" name="operations" value="Add" required>Add</label><br>
+            <label><input type="radio" name="operations" value="Substract">Substract</label><br>
+            <label><input type="radio" name="operations" value="Multiply">Multiply</label><br>
+            <label><input type="radio" name="operations" value="Divide">Division</label><br>
+                
+            Enter number 1: <input type="text" name="n1" required><br>
+            Enter number 2: <input type="text" name="n2" required><br>
+            <input type="submit" name="Get Result">
+        </form>
+        {%endblock%}
+    </body>
+</html>

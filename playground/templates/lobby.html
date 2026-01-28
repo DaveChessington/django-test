@@ -1,0 +1,11 @@
+{%extends "base.html"%}
+{%block content%}
+    <a href="{% url 'playground:hello' %}">Go back</a>
+    {%if state%}
+        {{message}}
+        hello Welcome back! UWU
+    {%else%}
+        {{message}}
+        Incorrect credentials
+    {%endif%}
+{%endblock%}

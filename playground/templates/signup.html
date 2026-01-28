@@ -1,0 +1,17 @@
+{%extends "base.html"%}
+
+{% load static %}
+
+{%block content%}
+<a href="{% url 'playground:login' %}">go back</a>
+<h1>Sign up page</h1>
+<p>please enter your info below to register it on the database</p>
+<img src="{% static 'images/Python-logo.png' %}" alt="Python Logo">
+<form method="post" action="{% url 'playground:success' %}">
+    {% csrf_token %}
+    Full Name: <input type="text" name="name"><br>
+    User Name: <input type="text" name="user"><br>
+    Password: <input type="password" name="password"><br>
+    <input type="submit" value="register">
+</form>
+{%endblock%}
